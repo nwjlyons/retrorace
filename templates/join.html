@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Join{% endblock %}
+
+{% block body %}
+<h1>Join race</h1>
+{% if canStillJoin %}
+<form action="" method="post">
+	{% if err %}
+	<p>{{ err }}</p>
+	{% endif %}
+	<input type="text" name="playerName" placeholder="Your name" autofocus>
+	<br>
+	<br>
+	<button type="submit">Join</button> or <a href="{{ spectatePath }}">Spectate</a>
+</form>
+{% else %}
+	<p>Game is full. You can still watch if you like by visiting this link. <a href="{{ spectatePath }}">Spectate</a>.</p>
+{% endif %}
+{% endblock %}

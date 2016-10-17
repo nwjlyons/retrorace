@@ -1,0 +1,63 @@
+@black: black;
+@grey: #d3d3d3;
+
+body {
+  margin:0;
+  padding: 0;
+  text-align: center;
+  background: @black;
+  color: @grey;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color:@grey;
+}
+
+.robot {
+  position: absolute;
+  margin-left: -5vh;
+  // Need this for firefox
+  height: 10vh;
+  width: 10vh;
+}
+
+#racetrack {
+  height: 100%;
+}
+
+#controls {
+  position: absolute;
+  top:0;
+  left:0;
+  width:400px;
+  height:300px;
+  background: white;
+}
+
+#dialog {
+  width:80vw;
+  height:75vh;
+  position: absolute;
+  top: 10vh;
+  left: 10vw;
+  box-sizing: border-box;
+  border: 10px solid @grey;
+  background: @black;
+  color:@grey;
+  z-index: 1;
+  ul, ol {
+    li {
+      text-align: left;
+    }
+  }
+  &.get-set {
+    border: none;
+    h1 {
+      font-size: 30vh;
+      line-height: 1;
+      margin:0;
+      padding:0;
+    }
+  }
+}

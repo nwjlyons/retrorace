@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}New{% endblock %}
+
+{% block body %}
+<h1>Retrorace</h1>
+<form action="" method="post">
+	{% if err %}
+	<p>{{ err }}</p>
+	{% endif %}
+	<input type="text" name="playerName" placeholder="Your name" autofocus>
+	<br>
+	<br>
+	<button type="submit">Start new game</button>
+</form>
+{% endblock %}

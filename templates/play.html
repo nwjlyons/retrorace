@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{% if player %}Play{% else %}Spectate{% endif %}{% endblock %}
+
+{% block body %}
+<script src="/static/retrorace.js"></script>
+<script>
+	Elm.Main.fullscreen({
+		socketURL: "ws://"+location.host+location.pathname,
+		currentPlayerName: "{{ player.Name }}",
+		winningCount: {{ winningCount }}
+	});
+</script>
+{% endblock %}

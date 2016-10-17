@@ -1,0 +1,5 @@
+.idea
+retrorace
+static/*.css
+static/*.js
+elm/elm-stuff
