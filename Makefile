@@ -4,6 +4,10 @@ e:
 	cd elm; elm format --yes *.elm
 	cd elm; elm make *.elm --output=../static/retrorace.js
 
+ed:
+	cd elm; elm format --yes *.elm
+	cd elm; elm make *.elm --output=../static/retrorace.js --debug
+
 format:
 	gofmt -w $(CURRENT_DIR)
 
