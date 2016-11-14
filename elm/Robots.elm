@@ -38,5 +38,5 @@ robot colour toptop leftleft name =
             , eye "9" "3"
             , pupil "3" "5"
             , pupil "11" "5"
-            , text' [ fontFamily "monospace", textAnchor "middle", fontSize "5px", fill white, y "15", x "8" ] [ text name ]
+            , text_ [ fontFamily "monospace", textAnchor "middle", fontSize "5px", fill white, y "15", x "8" ] [ text name ]
             ]

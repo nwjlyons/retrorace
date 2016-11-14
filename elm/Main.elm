@@ -3,16 +3,14 @@ module Main exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (id, class, style)
 import Html.Events exposing (onClick)
-import Html.App exposing (programWithFlags)
 import WebSocket
 import Json.Decode exposing (..)
 import Robots exposing (robot)
 import Keyboard
 
 
-main : Program Flags
 main =
-    programWithFlags
+    Html.programWithFlags
         { init = init
         , update = update
         , subscriptions = subscriptions
@@ -114,17 +112,17 @@ type ServerMsg
 
 decodeSocketMsg : Decoder ServerMsg
 decodeSocketMsg =
-    ("msgType" := string) `andThen` decodeSocketMsgBody
+    (field "msgType" string) |> andThen decodeSocketMsgBody
 
 
 decodeSocketMsgBody : String -> Decoder ServerMsg
 decodeSocketMsgBody msgType =
     case msgType of
         "countdown" ->
-            object1 Countdown ("tick" := string)
+            Json.Decode.map Countdown (field "tick" string)
 
         "state" ->
-            object1 State ("game" := decodeGame)
+            Json.Decode.map State (field "game" decodeGame)
 
         _ ->
             fail "expecting some kind of point"
@@ -132,10 +130,10 @@ decodeSocketMsgBody msgType =
 
 decodeGame : Decoder Game
 decodeGame =
-    object3 Game
-        ("key" := string)
-        (("state" := string) `andThen` decodeGameState)
-        ("players" := list decodePlayer)
+    map3 Game
+        (field "key" string)
+        ((field "state" string) |> andThen decodeGameState)
+        (field "players" (list decodePlayer))
 
 
 decodeGameState : String -> Decoder GameState
@@ -160,10 +158,10 @@ decodeGameState state =
 
 decodePlayer : Decoder Player
 decodePlayer =
-    object3 Player
-        ("name" := string)
-        ("count" := int)
-        (("role" := string) `andThen` decodeRole)
+    map3 Player
+        (field "name" string)
+        (field "count" int)
+        ((field "role" string) |> andThen decodeRole)
 
 
 decodeRole : String -> Decoder Role
