@@ -16,7 +16,9 @@ func main() {
 	m := macaron.New()
 
 	// Middleware
-	m.Use(pongo2.Pongoer())
+	m.Use(pongo2.Pongoer(pongo2.Options{
+		IndentJSON: true,
+	}))
 	m.Use(macaron.Recovery())
 	m.Use(macaron.Static("static", macaron.StaticOptions{
 		Prefix:      "static",

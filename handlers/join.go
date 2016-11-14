@@ -9,10 +9,10 @@ import (
 func join(ctx *macaron.Context, game *retroengine.Game) {
 	ctx.Data["spectatePath"] = ctx.URLFor("spectate", "key", game.Key)
 
-	if len(game.Players) >= 5 {
-		ctx.Data["canStillJoin"] = false
-	} else {
+	if game.State == retroengine.WaitingForPlayers && len(game.Players) <= 5 {
 		ctx.Data["canStillJoin"] = true
+	} else {
+		ctx.Data["canStillJoin"] = false
 	}
 
 	if ctx.Data["canStillJoin"].(bool) && ctx.Req.Method == "POST" {

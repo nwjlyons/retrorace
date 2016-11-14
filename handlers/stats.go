@@ -20,6 +20,7 @@ func Stats(ctx *macaron.Context) (string, error) {
 		PID          int
 		Memory       string
 		NumGames     int
+		Games        []*retroengine.Game
 	}{
 		GOVERSION:    runtime.Version(),
 		GOARCH:       runtime.GOARCH,
@@ -29,5 +30,6 @@ func Stats(ctx *macaron.Context) (string, error) {
 		Memory:       fmt.Sprintf("%.3fMB", float64(mem.Alloc)/1000000),
 		PID:          syscall.Getpid(),
 		NumGames:     len(retroengine.GameStore.Games),
+		Games:        retroengine.GameStore.Games,
 	})
 }
