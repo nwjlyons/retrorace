@@ -1,0 +1,18 @@
+hash: e712cc78b363e296248fef352ef662537cf18ab74e3fdabc62dcec3120442020
+updated: 2016-12-06T12:34:52.925913548Z
+imports:
+- name: github.com/go-macaron/inject
+  version: d8a0b8677191f4380287cfebd08e462217bac7ad
+- name: github.com/go-macaron/pongo2
+  version: b9b1ee57954e1242dae72eb28ba078e04f6c9284
+- name: github.com/gorilla/websocket
+  version: 1f512fc3f05332ba7117626cdfb4e07474e58e60
+- name: github.com/Unknwon/com
+  version: 28b053d5a2923b87ce8c5a08f3af779894a72758
+- name: gopkg.in/flosch/pongo2.v3
+  version: 5e81b817a0c48c1c57cdf1a9056cf76bdee02ca9
+- name: gopkg.in/ini.v1
+  version: 6e4869b434bd001f6983749881c7ead3545887d8
+- name: gopkg.in/macaron.v1
+  version: 826ddf13862c544525338a2deda6f57ffd1a9083
+testImports: []
