@@ -1,9 +1,10 @@
 package handlers
 
 import (
+	"strings"
+
 	"github.com/nwjlyons/retrorace/retroengine"
 	"gopkg.in/macaron.v1"
-	"strings"
 )
 
 func join(ctx *macaron.Context, game *retroengine.Game) {

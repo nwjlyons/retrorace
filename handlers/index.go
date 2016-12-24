@@ -1,9 +1,10 @@
 package handlers
 
 import (
+	"strings"
+
 	"github.com/nwjlyons/retrorace/retroengine"
 	"gopkg.in/macaron.v1"
-	"strings"
 )
 
 func Index(ctx *macaron.Context) {
